@@ -1,6 +1,12 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     coin.setPosition(randint(10, 110), randint(15, 120))
     info.changeScoreBy(10)
+    if (info.score() == 150) {
+        info.startCountdown(20)
+    }
+    if (info.score() == 300) {
+        info.startCountdown(20)
+    }
 })
 let coin: Sprite = null
 info.setScore(-10)
@@ -159,3 +165,6 @@ coin = sprites.create(img`
     . . f f f f . . 
     `, SpriteKind.Food)
 info.startCountdown(20)
+forever(function () {
+    music.playMelody("C C5 D A E G C5 F ", 150)
+})
